@@ -1,0 +1,11 @@
+{
+  "name": "ka-pe-de-palma-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Root workspace workspace runner for Ka-pe de Palma Cafe-Pool Platform",
+  "scripts": {
+    "dev": "npm run dev --prefix cafe-pool-platform/frontend-react",
+    "build": "npm run build --prefix cafe-pool-platform/frontend-react",
+    "backend": "powershell -Command \"$env:JAVA_HOME='C:\\Program Files\\Microsoft\\jdk-17.0.19.10-hotspot'; $env:PATH=\\\"$env:JAVA_HOME\\bin;$env:PATH\\\"; ./cafe-pool-platform/backend-spring-boot/mvnw -f cafe-pool-platform/backend-spring-boot/pom.xml spring-boot:run\""
+  }
+}
