@@ -10,29 +10,27 @@ export default function Home() {
       <div className="absolute top-96 -right-20 w-96 h-96 bg-coffee-200/20 rounded-full blur-[100px] pointer-events-none" />
 
       {/* HERO SECTION */}
-      <section className="relative min-h-[85vh] flex items-center justify-center bg-gradient-to-b from-pool-950 to-pool-900 text-white px-4 py-20">
+      <section className="relative min-h-[85vh] flex items-center justify-center bg-black text-white px-4 py-20">
         {/* Background Image Overlay */}
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-60 pointer-events-none"
           style={{ 
-            backgroundImage: "url('/hero-bg.png')" 
+            backgroundImage: "url('/hero-bg-clear.png')" 
           }}
         />
 
         <div className="max-w-4xl mx-auto text-center z-10 space-y-8 animate-slide-up">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pool-400/10 border border-pool-400/20 text-pool-300 text-xs font-semibold uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sand-400/10 border border-sand-400/25 text-sand-300 text-xs font-semibold uppercase tracking-widest">
             <Compass size={14} className="animate-spin-slow" />
             Oton's Nature Cafe & Pool
           </div>
           
-          <h1 className="font-serif text-5xl md:text-7xl font-bold tracking-tight leading-tight">
+          <h1 className="font-serif text-5xl md:text-7xl font-bold tracking-tight leading-tight text-sand-100">
             Indulge in Flavors.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pool-300 via-sand-200 to-coffee-400">
-              Unwind by the Water.
-            </span>
+            Unwind by the Water.
           </h1>
           
-          <p className="text-pool-200 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sand-200 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
             Ka-pe de Palma merges artisan crafted brews and exquisite culinary plates with the ultimate relaxing poolside retreat. Book your escape today.
           </p>
 
@@ -46,7 +44,7 @@ export default function Home() {
             </Link>
             <Link
               to="/menu"
-              className="flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/15 text-white border border-white/20 rounded-full text-base font-bold backdrop-blur hover:scale-105 transition-all duration-300"
+              className="flex items-center justify-center gap-2 px-8 py-4 bg-white/5 hover:bg-white/10 text-sand-100 border border-sand-200/30 rounded-full text-base font-bold backdrop-blur hover:scale-105 transition-all duration-300"
             >
               <Coffee size={18} />
               Explore Menu
