@@ -36,16 +36,27 @@ export default function MenuPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Page Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-1 text-coffee-600 bg-coffee-100/60 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
-            <Coffee size={14} />
-            Freshly Prepared Daily
+        <div 
+          className="relative text-center overflow-hidden mb-16 rounded-3xl py-16 md:py-24 px-6 md:px-12 shadow-lg bg-cover bg-center"
+          style={{ backgroundImage: `url('/cozy-nature-coffee.png')` }}
+        >
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-pool-950/70 via-pool-950/65 to-pool-950/75 mix-blend-multiply" />
+          
+          {/* Content */}
+          <div className="relative z-10 max-w-2xl mx-auto space-y-4">
+            <div className="inline-flex items-center gap-1 text-amber-200 bg-amber-950/40 backdrop-blur-md border border-amber-500/20 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
+              <Coffee size={14} />
+              Freshly Prepared Daily
+            </div>
+            <h1 className="font-serif text-4xl md:text-5xl font-bold text-white tracking-wide drop-shadow-md">
+              Our Digital Menu
+            </h1>
+            <div className="h-1.5 w-16 bg-amber-500 rounded-full mx-auto" />
+            <p className="text-amber-50/90 text-sm md:text-base leading-relaxed max-w-xl mx-auto drop-shadow-sm">
+              From sunrise double espressos to sunset poolside refreshments, browse our hand-crafted selections. Made with organic, premium ingredients.
+            </p>
           </div>
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-pool-950">Our Digital Menu</h1>
-          <div className="h-1.5 w-16 bg-coffee-600 rounded-full mx-auto" />
-          <p className="text-pool-600 text-sm md:text-base">
-            From sunrise double espressos to sunset poolside refreshments, browse our hand-crafted selections. Made with organic, premium ingredients.
-          </p>
         </div>
 
         {/* Filter and Search controls */}

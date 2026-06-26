@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.lang.NonNull;
 import java.util.List;
 import java.util.Map;
 
@@ -40,20 +41,20 @@ public class CafeController {
     }
 
     @PostMapping("/menu")
-    public ResponseEntity<MenuItem> createMenuItem(@RequestBody MenuItem menuItem) {
+    public ResponseEntity<MenuItem> createMenuItem(@RequestBody @NonNull MenuItem menuItem) {
         MenuItem saved = cafeService.saveMenuItem(menuItem);
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 
     @PutMapping("/menu/{id}")
-    public ResponseEntity<MenuItem> updateMenuItem(@PathVariable Long id, @RequestBody MenuItem menuItem) {
+    public ResponseEntity<MenuItem> updateMenuItem(@PathVariable @NonNull Long id, @RequestBody @NonNull MenuItem menuItem) {
         return cafeService.updateMenuItem(id, menuItem)
                 .map(item -> new ResponseEntity<>(item, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @DeleteMapping("/menu/{id}")
-    public ResponseEntity<Void> deleteMenuItem(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteMenuItem(@PathVariable @NonNull Long id) {
         if (cafeService.deleteMenuItem(id)) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
@@ -68,7 +69,7 @@ public class CafeController {
     }
 
     @PostMapping("/bookings")
-    public ResponseEntity<?> createBooking(@RequestBody Booking booking) {
+    public ResponseEntity<?> createBooking(@RequestBody @NonNull Booking booking) {
         try {
             Booking saved = cafeService.createBooking(booking);
             return new ResponseEntity<>(saved, HttpStatus.CREATED);
@@ -82,7 +83,7 @@ public class CafeController {
     }
 
     @PutMapping("/bookings/{id}/status")
-    public ResponseEntity<?> updateBookingStatus(@PathVariable Long id, @RequestBody Map<String, String> body) {
+    public ResponseEntity<?> updateBookingStatus(@PathVariable @NonNull Long id, @RequestBody Map<String, String> body) {
         String status = body.get("status");
         if (status == null) {
             return new ResponseEntity<>(Map.of("error", "Status field is required"), HttpStatus.BAD_REQUEST);

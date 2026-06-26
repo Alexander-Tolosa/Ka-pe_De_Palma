@@ -139,24 +139,6 @@ function MainLayout({ children, isAdminLoggedIn, setIsAdminLoggedIn }) {
               <p className="text-pool-300 text-sm leading-relaxed max-w-sm">
                 Where the rich aroma of artisanal coffee meets the serene, cool waters of a private oasis. Unwind, swim, and dine with us today.
               </p>
-              <div className="flex gap-4 pt-2">
-                <a 
-                  href="https://www.instagram.com/kapedepalma?igsh=b2Vid3ZhaTg0NmNh&utm_source=qr&fbclid=IwY2xjawSmCXpleHRuA2FlbQIxMABicmlkETFoSWJGUldSVlVCM0U5a2Iyc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHk_vKX6zYzk4894xCn4j30dfWr0ZASEbj5H43Lq36fg9a_EKllYo1kKd6jrC_aem_07LDqxViWzLNwXHo0oQnFg" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="w-8 h-8 rounded-full bg-pool-900 flex items-center justify-center hover:bg-coffee-600 hover:text-white transition-colors"
-                >
-                  <Instagram size={16} />
-                </a>
-                <a 
-                  href="https://www.facebook.com/profile.php?id=61555442954559" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="w-8 h-8 rounded-full bg-pool-900 flex items-center justify-center hover:bg-coffee-600 hover:text-white transition-colors"
-                >
-                  <Facebook size={16} />
-                </a>
-              </div>
             </div>
 
             {/* Quick Contacts */}
@@ -188,6 +170,24 @@ function MainLayout({ children, isAdminLoggedIn, setIsAdminLoggedIn }) {
                   </a>
                 </li>
               </ul>
+              <div className="flex gap-4 pt-2">
+                <a 
+                  href="https://www.instagram.com/kapedepalma?igsh=b2Vid3ZhaTg0NmNh&utm_source=qr&fbclid=IwY2xjawSmCXpleHRuA2FlbQIxMABicmlkETFoSWJGUldSVlVCM0U5a2Iyc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHk_vKX6zYzk4894xCn4j30dfWr0ZASEbj5H43Lq36fg9a_EKllYo1kKd6jrC_aem_07LDqxViWzLNwXHo0oQnFg" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-8 h-8 rounded-full bg-pool-900 flex items-center justify-center hover:bg-coffee-600 hover:text-white transition-colors"
+                >
+                  <Instagram size={16} />
+                </a>
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61555442954559" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-8 h-8 rounded-full bg-pool-900 flex items-center justify-center hover:bg-coffee-600 hover:text-white transition-colors"
+                >
+                  <Facebook size={16} />
+                </a>
+              </div>
             </div>
 
             {/* Hours */}

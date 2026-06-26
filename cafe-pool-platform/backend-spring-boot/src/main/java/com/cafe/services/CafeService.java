@@ -6,6 +6,7 @@ import com.cafe.repositories.BookingRepository;
 import com.cafe.repositories.MenuItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.lang.NonNull;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
@@ -33,15 +34,15 @@ public class CafeService {
         return menuItemRepository.findAll();
     }
 
-    public List<MenuItem> getMenuItemsByCategory(String category) {
+    public List<MenuItem> getMenuItemsByCategory(@NonNull String category) {
         return menuItemRepository.findByCategory(category);
     }
 
-    public MenuItem saveMenuItem(MenuItem menuItem) {
+    public MenuItem saveMenuItem(@NonNull MenuItem menuItem) {
         return menuItemRepository.save(menuItem);
     }
 
-    public Optional<MenuItem> updateMenuItem(Long id, MenuItem itemDetails) {
+    public Optional<MenuItem> updateMenuItem(@NonNull Long id, @NonNull MenuItem itemDetails) {
         return menuItemRepository.findById(id).map(existingItem -> {
             existingItem.setName(itemDetails.getName());
             existingItem.setDescription(itemDetails.getDescription());
@@ -53,7 +54,7 @@ public class CafeService {
         });
     }
 
-    public boolean deleteMenuItem(Long id) {
+    public boolean deleteMenuItem(@NonNull Long id) {
         return menuItemRepository.findById(id).map(item -> {
             menuItemRepository.delete(item);
             return true;
@@ -66,7 +67,7 @@ public class CafeService {
         return bookingRepository.findAll();
     }
 
-    public synchronized Booking createBooking(Booking booking) {
+    public synchronized Booking createBooking(@NonNull Booking booking) {
         // Validation: Date must be present and in the future/today
         if (booking.getBookingDate() == null || booking.getBookingDate().isBefore(LocalDate.now())) {
             throw new IllegalArgumentException("Booking date must be today or in the future.");
@@ -98,7 +99,7 @@ public class CafeService {
         return bookingRepository.save(booking);
     }
 
-    public Optional<Booking> updateBookingStatus(Long id, String status) {
+    public Optional<Booking> updateBookingStatus(@NonNull Long id, @NonNull String status) {
         return bookingRepository.findById(id).map(existingBooking -> {
             String cleanStatus = status.trim().toUpperCase();
             if (cleanStatus.equals("PENDING") || cleanStatus.equals("APPROVED") || cleanStatus.equals("CANCELLED")) {
@@ -116,7 +117,9 @@ public class CafeService {
         List<Booking> bookings = bookingRepository.findAll();
         double totalRevenue = bookings.stream()
                 .filter(b -> b.getStatus().equalsIgnoreCase("APPROVED"))
-                .mapToDouble(Booking::getTotalPrice)
+                .map(Booking::getTotalPrice)
+                .filter(java.util.Objects::nonNull)
+                .mapToDouble(Double::doubleValue)
                 .sum();
 
         long pendingCount = bookings.stream().filter(b -> b.getStatus().equalsIgnoreCase("PENDING")).count();
@@ -125,7 +128,9 @@ public class CafeService {
 
         int totalGuests = bookings.stream()
                 .filter(b -> b.getStatus().equalsIgnoreCase("APPROVED"))
-                .mapToInt(Booking::getGuestCount)
+                .map(Booking::getGuestCount)
+                .filter(java.util.Objects::nonNull)
+                .mapToInt(Integer::intValue)
                 .sum();
 
         Map<String, Object> stats = new HashMap<>();

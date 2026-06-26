@@ -57,15 +57,26 @@ export default function Booking() {
       <div className="max-w-4xl mx-auto px-4">
         
         {/* Page Title */}
-        <div className="text-center mb-12 space-y-4">
-          <span className="inline-block text-pool-600 bg-pool-100 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-            Pool Reservation
-          </span>
-          <h1 className="font-serif text-4xl font-bold text-pool-950">Book Your Pool Pass</h1>
-          <div className="h-1.5 w-16 bg-coffee-600 rounded-full mx-auto" />
-          <p className="text-pool-600 text-sm max-w-lg mx-auto">
-            Secure entry to our luxury pool facilities. Choose your date, select a preferred time slot, and calculate your booking price in real-time.
-          </p>
+        <div 
+          className="relative text-center overflow-hidden mb-12 rounded-3xl py-12 md:py-16 px-6 shadow-lg bg-cover bg-center"
+          style={{ backgroundImage: `url('/cozy-nature-pool.png')` }}
+        >
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-pool-950/70 via-pool-950/65 to-pool-950/75 mix-blend-multiply" />
+
+          {/* Content */}
+          <div className="relative z-10 space-y-4">
+            <span className="inline-block text-cyan-200 bg-cyan-950/40 backdrop-blur-md border border-cyan-500/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+              Pool Reservation
+            </span>
+            <h1 className="font-serif text-4xl font-bold text-white tracking-wide drop-shadow-md">
+              Book Your Pool Pass
+            </h1>
+            <div className="h-1.5 w-16 bg-cyan-500 rounded-full mx-auto" />
+            <p className="text-cyan-50/90 text-sm max-w-lg mx-auto drop-shadow-sm leading-relaxed">
+              Secure entry to our luxury pool facilities. Choose your date, select a preferred time slot, and calculate your booking price in real-time.
+            </p>
+          </div>
         </div>
 
         {successData ? (
@@ -317,12 +328,12 @@ export default function Booking() {
               </div>
 
               {/* Pool Policy info */}
-              <div className="glass-card bg-pool-950 text-white rounded-3xl p-6 shadow-lg space-y-4">
-                <h4 className="font-serif text-base font-bold text-coffee-400 flex items-center gap-1.5">
+              <div className="glass-card-dark rounded-3xl p-6 shadow-lg space-y-4">
+                <h4 className="font-serif text-base font-bold text-coffee-300 flex items-center gap-1.5">
                   <Clock size={16} />
                   Oasis Rules & Policy
                 </h4>
-                <ul className="text-xs text-pool-200 space-y-2.5 leading-relaxed">
+                <ul className="text-xs text-pool-100 space-y-2.5 leading-relaxed">
                   <li>&bull; Check-in opens 15 minutes before the session starts.</li>
                   <li>&bull; Clean, appropriate swim attire is strictly required.</li>
                   <li>&bull; Children under 12 must be supervised by an adult at all times.</li>
