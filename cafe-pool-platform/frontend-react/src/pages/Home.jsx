@@ -174,7 +174,7 @@ export default function Home() {
               <div className="flex flex-col gap-2">
                 <h4 className="font-bold text-pool-950 text-base tracking-wide">Venue Amenities</h4>
                 <p className="text-pool-600 text-sm leading-relaxed tracking-wide">
-                  We’ve designed our space for ultimate relaxation. Guests have access to our swimming pool, outdoor showers, comfortable nature vibe scenery, and full table service from the cafe.
+                  We’ve designed our space for ultimate relaxation. Guests have access to our swimming pool and comfortable nature vibe scenery.
                 </p>
               </div>
             </div>
@@ -191,9 +191,9 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { name: "Jessica M.", rating: 5, text: "The Sea Salt Spanish Latte is absolutely out of this world! Combining it with an afternoon dip in the pool makes this my absolute favorite place in Laguna." },
-            { name: "Christian L.", rating: 5, text: "Extremely tidy, peaceful vibe, and the Palma club sandwich was fantastic. The booking system was very straightforward and we loved the lounge seats." },
-            { name: "Maria Clara S.", rating: 5, text: "Perfect venue for a relaxing weekend. The staff is polite, the coffee is premium grade, and the pool feels like a five-star private resort." }
+            { name: "Gell Buen", rating: 5, text: "If you're looking for a lively spot with a great buzz, this is definitely the place to be." },
+            { name: "Misty", rating: 5, text: "fun and relaxing! great hang-out place w/ a POOL✨ opens at 9am Tuesdays til Sunday, CLOSED on mondays. you will deffo get ur money's worth." },
+            { name: "Bing Dela Cruz", rating: 5, text: "Me and Biel (my dog) just visited this pet friendly place in Oton. The place is cozy and service was ok. Everyone was smiling and very friendly. Food was just ok. Nothing special. But what we love is another place to visit with our travelling biel. Be back soon." }
           ].map((item, idx) => (
             <div key={idx} className="glass-card p-8 rounded-2xl shadow-md border border-sand-200/50 space-y-4">
               <div className="flex text-yellow-500 gap-1">
